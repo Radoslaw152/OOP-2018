@@ -22,11 +22,11 @@ int Strcmp(const char* lhs, const char* rhs)
 	{
 		if (lhs[i] < rhs[i])
 		{
-			return 1;
+			return -1;
 		}
 		if (lhs[i] > rhs[i])
 		{
-			return -1;
+			return 1;
 		}
 	}
 	if (lhs[i] != '\0' && rhs[i] == '\0')
