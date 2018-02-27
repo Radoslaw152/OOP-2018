@@ -3,15 +3,15 @@
 
 int main()
 {
-	//Обект, който е инициализиран с конструктора по подразбиране
+	//РћР±РµРєС‚, РєРѕР№С‚Рѕ Рµ РёРЅРёС†РёР°Р»РёР·РёСЂР°РЅ СЃ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїРѕ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ
 	Wabbit FMI;
 
-	//Обект, който е инициализиран с конструктора с параметри
+	//РћР±РµРєС‚, РєРѕР№С‚Рѕ Рµ РёРЅРёС†РёР°Р»РёР·РёСЂР°РЅ СЃ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° СЃ РїР°СЂР°РјРµС‚СЂРё
 	Wabbit OOP(25, Red, Vampire);
 
 	
 	std::cout << FMI.getAge() << std::endl;
-	switch (FMI.getColor)
+	switch (FMI.getColor())
 	{
 	case Red: std::cout << "Color Red" << std::endl; break;
 	case Green: std::cout << "Color Green" << std::endl; break;
@@ -22,7 +22,7 @@ int main()
 
 	FMI.setGender(Vampire);
 
-	//Трябва да изведе 2 - на това отговаря Vampire в enum-a
+	//РўСЂСЏР±РІР° РґР° РёР·РІРµРґРµ 2 - РЅР° С‚РѕРІР° РѕС‚РіРѕРІР°СЂСЏ Vampire РІ enum-a
 	std::cout << FMI.getGender() << std::endl;
 	return 0;
 }
