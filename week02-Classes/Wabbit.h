@@ -1,5 +1,5 @@
-#pragma once // НЕ ЗАБРАВАЙТЕ!!! - Visual Studio обикновенно само го генерира при .h файлове, но пак :)
-#include <random> // за функцията rand()
+#pragma once // РќР• Р—РђР‘Р РђР’РђР™РўР•!!! - Visual Studio РѕР±РёРєРЅРѕРІРµРЅРЅРѕ СЃР°РјРѕ РіРѕ РіРµРЅРµСЂРёСЂР° РїСЂРё .h С„Р°Р№Р»РѕРІРµ, РЅРѕ РїР°Рє :)
+#include <random> // Р·Р° С„СѓРЅРєС†РёСЏС‚Р° rand()
 
 enum Color
 {
@@ -18,10 +18,10 @@ enum Gender
 };
 const int gendersInTotal = 3;
 
-// Имаме клас Wabbit - специален вид заек, който живее в Перник
-// Той има следните спецификации: години - цяло неотрицателно число
-//								  пол - мъжко, женско, вампир 
-//								  цвят - червен, зелен, син, бял, черен
+// РРјР°РјРµ РєР»Р°СЃ Wabbit - СЃРїРµС†РёР°Р»РµРЅ РІРёРґ Р·Р°РµРє, РєРѕР№С‚Рѕ Р¶РёРІРµРµ РІ РџРµСЂРЅРёРє
+// РўРѕР№ РёРјР° СЃР»РµРґРЅРёС‚Рµ СЃРїРµС†РёС„РёРєР°С†РёРё: РіРѕРґРёРЅРё - С†СЏР»Рѕ РЅРµРѕС‚СЂРёС†Р°С‚РµР»РЅРѕ С‡РёСЃР»Рѕ
+//								  РїРѕР» - РјСЉР¶РєРѕ, Р¶РµРЅСЃРєРѕ, РІР°РјРїРёСЂ 
+//								  С†РІСЏС‚ - С‡РµСЂРІРµРЅ, Р·РµР»РµРЅ, СЃРёРЅ, Р±СЏР», С‡РµСЂРµРЅ
 class Wabbit
 {
 private:
@@ -30,40 +30,40 @@ private:
 	Gender m_Gender;
 public:
 
-	// Конструктор подразбиране
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ
 	Wabbit();
 
-	// Конструктор с параметри
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂРё
 	Wabbit(const unsigned int&, const Color&, const Gender&);
 
-	// Advanced: Конструктор с параметри и подразбиране в едно
+	// Advanced: РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂРё Рё РїРѕРґСЂР°Р·Р±РёСЂР°РЅРµ РІ РµРґРЅРѕ
 	// Wabbit(const unsigned int& = 0, 
 	//		const Color& = static_cast<Color>(rand() % colorsInTotal),
 	//		const Gender& = static_cast<Gender>(rand() % gendersInTotal));
 
 
-	// Селектор за годините
-	// Може и само unsigned int getAge() const;
+	// РЎРµР»РµРєС‚РѕСЂ Р·Р° РіРѕРґРёРЅРёС‚Рµ
+	// РњРѕР¶Рµ Рё СЃР°РјРѕ unsigned int getAge() const;
 	const unsigned int& getAge() const;
 
-	// Мутатор за годините
-	// Може и само void setAge(unsigned int);
+	// РњСѓС‚Р°С‚РѕСЂ Р·Р° РіРѕРґРёРЅРёС‚Рµ
+	// РњРѕР¶Рµ Рё СЃР°РјРѕ void setAge(unsigned int);
 	void setAge(const unsigned int&);
 
 
-	// Селектор за цвета
-	// Може и само Color getColor() const;
+	// РЎРµР»РµРєС‚РѕСЂ Р·Р° С†РІРµС‚Р°
+	// РњРѕР¶Рµ Рё СЃР°РјРѕ Color getColor() const;
 	const Color& getColor() const;
 
-	// Мутатор за цвета
-	// Може и само void setColor(Color);
+	// РњСѓС‚Р°С‚РѕСЂ Р·Р° С†РІРµС‚Р°
+	// РњРѕР¶Рµ Рё СЃР°РјРѕ void setColor(Color);
 	void setColor(const Color&);
 
-	// Мутатор за пола
-	// Може и само Gender getGender() const;
+	// РњСѓС‚Р°С‚РѕСЂ Р·Р° РїРѕР»Р°
+	// РњРѕР¶Рµ Рё СЃР°РјРѕ Gender getGender() const;
 	const Gender& getGender() const;
 
-	// Селектор за пола
-	// Може и само void setGender(Gender);
+	// РЎРµР»РµРєС‚РѕСЂ Р·Р° РїРѕР»Р°
+	// РњРѕР¶Рµ Рё СЃР°РјРѕ void setGender(Gender);
 	void setGender(const Gender&);
 };
