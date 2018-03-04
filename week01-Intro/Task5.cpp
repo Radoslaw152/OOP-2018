@@ -1,6 +1,6 @@
 #include <iostream>
 
-//Функция, която копира един низ в друг до source[delim]
+//Р¤СѓРЅРєС†РёСЏ, РєРѕСЏС‚Рѕ РєРѕРїРёСЂР° РµРґРёРЅ РЅРёР· РІ РґСЂСѓРі РґРѕ source[delim]
 void copyString(char* destination, const char* source, int delim)
 {
 	if (destination != nullptr && source != nullptr)
@@ -17,21 +17,21 @@ void copyString(char* destination, const char* source, int delim)
 	}
 }
 
-//Функция, която проверява дали даден чар е буква или пунктуационен знак
+//Р¤СѓРЅРєС†РёСЏ, РєРѕСЏС‚Рѕ РїСЂРѕРІРµСЂСЏРІР° РґР°Р»Рё РґР°РґРµРЅ С‡Р°СЂ Рµ Р±СѓРєРІР° РёР»Рё РїСѓРЅРєС‚СѓР°С†РёРѕРЅРµРЅ Р·РЅР°Рє
 bool isLetter(const char& tempChar)
 {
 	return (tempChar >= 'a' && tempChar <= 'z') ||
 		(tempChar >= 'A' && tempChar <= 'Z');
 }
 
-//Фунцкия, която изчислява колко думи имаме
+//Р¤СѓРЅС†РєРёСЏ, РєРѕСЏС‚Рѕ РёР·С‡РёСЃР»СЏРІР° РєРѕР»РєРѕ РґСѓРјРё РёРјР°РјРµ
 unsigned int countWords(const char* string)
 {
 	char tempChar;
 	unsigned int counter = 1;
 	for (int i = 0; string[i] != '\0'; ++i)
 	{
-		//Искаме предишния символ да е буква, текущия да не е
+		//РСЃРєР°РјРµ РїСЂРµРґРёС€РЅРёСЏ СЃРёРјРІРѕР» РґР° Рµ Р±СѓРєРІР°, С‚РµРєСѓС‰РёСЏ РґР° РЅРµ Рµ
 		if (i > 0 && isLetter(string[i - 1]) && !isLetter(string[i]))
 		{
 			++counter;
@@ -41,19 +41,19 @@ unsigned int countWords(const char* string)
 }
 char** getArrayOfStrings(const char* string, const unsigned int& wordsTotal)
 {
-	//заделяме толкова памет, колкото думи има
+	//Р·Р°РґРµР»СЏРјРµ С‚РѕР»РєРѕРІР° РїР°РјРµС‚, РєРѕР»РєРѕС‚Рѕ РґСѓРјРё РёРјР°
 	char** arrayOfStrings = new char*[wordsTotal];
-	// брояч на коя дума сме в момента
+	// Р±СЂРѕСЏС‡ РЅР° РєРѕСЏ РґСѓРјР° СЃРјРµ РІ РјРѕРјРµРЅС‚Р°
 	int currentWord = 0;
-	// брояч за колко букви има текущата дума
+	// Р±СЂРѕСЏС‡ Р·Р° РєРѕР»РєРѕ Р±СѓРєРІРё РёРјР° С‚РµРєСѓС‰Р°С‚Р° РґСѓРјР°
 	int currentChar = 0;
 	for (int i = 0; currentWord < wordsTotal; ++i)
 	{
 		if (i > 0 && !isLetter(string[i]) && isLetter(string[i-1]))
 		{
 			arrayOfStrings[currentWord] = new char[currentChar + 1];
-			//Казваме, че искаме да копираме в arrayOfString[currentWord], низа, който започва от
-			//i - currentChar мястото в string, и искаме да копираме точно currentChar символи
+			//РљР°Р·РІР°РјРµ, С‡Рµ РёСЃРєР°РјРµ РґР° РєРѕРїРёСЂР°РјРµ РІ arrayOfString[currentWord], РЅРёР·Р°, РєРѕР№С‚Рѕ Р·Р°РїРѕС‡РІР° РѕС‚
+			//i - currentChar РјСЏСЃС‚РѕС‚Рѕ РІ string, Рё РёСЃРєР°РјРµ РґР° РєРѕРїРёСЂР°РјРµ С‚РѕС‡РЅРѕ currentChar СЃРёРјРІРѕР»Рё
 			copyString(arrayOfStrings[currentWord], string + i - currentChar, currentChar);
 			currentWord++;
 			currentChar = 0;
@@ -66,7 +66,7 @@ char** getArrayOfStrings(const char* string, const unsigned int& wordsTotal)
 	return arrayOfStrings;
 }
 
-//Функция, която сравнява колко два низа, като пренебрегва разликата между голяма и малка буква
+//Р¤СѓРЅРєС†РёСЏ, РєРѕСЏС‚Рѕ СЃСЂР°РІРЅСЏРІР° РєРѕР»РєРѕ РґРІР° РЅРёР·Р°, РєР°С‚Рѕ РїСЂРµРЅРµР±СЂРµРіРІР° СЂР°Р·Р»РёРєР°С‚Р° РјРµР¶РґСѓ РіРѕР»СЏРјР° Рё РјР°Р»РєР° Р±СѓРєРІР°
 int compareStrings(const char* lhs, const char* rhs)
 {
 	char tempLeft;
@@ -91,9 +91,9 @@ int compareStrings(const char* lhs, const char* rhs)
 	return tempLeft - tempRight;
 }
 
-//Функция, която сортира нашите думи по лексикографска наредба
-//Използва се алгоритъма за сортиране чрез вмъкване - Insertion Sort
-//Разместваме само указатели
+//Р¤СѓРЅРєС†РёСЏ, РєРѕСЏС‚Рѕ СЃРѕСЂС‚РёСЂР° РЅР°С€РёС‚Рµ РґСѓРјРё РїРѕ Р»РµРєСЃРёРєРѕРіСЂР°С„СЃРєР° РЅР°СЂРµРґР±Р°
+//РР·РїРѕР»Р·РІР° СЃРµ Р°Р»РіРѕСЂРёС‚СЉРјР° Р·Р° СЃРѕСЂС‚РёСЂР°РЅРµ С‡СЂРµР· РІРјСЉРєРІР°РЅРµ - Insertion Sort
+//Р Р°Р·РјРµСЃС‚РІР°РјРµ СЃР°РјРѕ СѓРєР°Р·Р°С‚РµР»Рё
 void sortArrayOfStrings(char** arrayOfStrings, const unsigned int& size)
 {
 	for (unsigned int i = 1; i < size; ++i)
@@ -126,7 +126,7 @@ int main()
 
 	for (int i = 0; i < numberOfWords; ++i)
 	{
-		//не искаме да print-ваме на конзолата повтарящи се думи
+		//РЅРµ РёСЃРєР°РјРµ РґР° print-РІР°РјРµ РЅР° РєРѕРЅР·РѕР»Р°С‚Р° РїРѕРІС‚Р°СЂСЏС‰Рё СЃРµ РґСѓРјРё
 		if (i > 0 && compareStrings(arrayOfStrings[i - 1], arrayOfStrings[i]) == 0)
 		{
 			continue;
