@@ -60,15 +60,19 @@ void String::append(const String& rhs)
 {
 	append(rhs.m_String);
 }
-String String::concat(const String& rhs)
+String String::concat(const String& rhs) const
 {
 	String newString(*this);
 	newString.append(rhs);
 	return newString;
 }
-String String::concat(const char* rhs)
+String String::concat(const char* rhs) const
 {
 	String newString(*this);
 	newString.append(rhs);
 	return newString;
+}
+unsigned int String::getSize() const
+{
+	return m_Size;
 }
