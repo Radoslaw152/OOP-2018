@@ -14,7 +14,8 @@ public:
 	virtual Account* clone() const = 0;
 public:
 	Account(const std::string& IBAN, const std::string& Owner, const Money& Amount);
-
+	virtual ~Account() {};
+	
 	virtual void deposit(const Money& Amount) = 0;
 	virtual bool withdraw(const Money& Amount) = 0;
 	virtual void display() const = 0;
